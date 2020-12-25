@@ -19,6 +19,10 @@ type User struct {
 
 // save user in database
 func (user User) Save() error {
+	if user.Username == "" || user.Password == "" {
+		return errors.New("Please enter username and password fields")
+	}
+
 	data := database.ReadFile(path)
 	fmt.Println("Successfully opened users file")
 
