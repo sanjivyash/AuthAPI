@@ -1,5 +1,8 @@
-#!usr/bin/bash
+#!/bin/bash
 url=http://localhost:3000/api
+
+# initiater command
+out=$(curl -s -H "Content-Type: application/json" -X POST -d '{"username":"sanjivyash","password":"authapi"}' $url/signup)
 
 # delete user check
 curl -s -H "Content-Type: application/json" -X POST -d '{"username":"sanjivyash","password":"authapi"}' $url/delete
