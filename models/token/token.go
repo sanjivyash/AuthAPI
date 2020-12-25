@@ -43,7 +43,6 @@ func (token *Token) Generate() {
 // authenticate info request
 func (token Token) Authenticate() error {
 	tokens := updatedTokens()
-	fmt.Println(tokens)
 
 	for i := 0; i < len(tokens); i++ {
 		if tokens[i].Message == token.Message {
@@ -58,8 +57,13 @@ func (token Token) Authenticate() error {
 
 // utility function to generate token message
 func generateToken() string {
+	charset := "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	rand.Seed(time.Now().UnixNano())
+
 	chars := make([]byte, tokenLength)
-	rand.Read(chars)
+  for i := range chars {
+    chars[i] = charset[rand.Intn(len(charset))]
+  }
 
 	msg := string(chars)
 	fmt.Println(msg)

@@ -9,7 +9,11 @@ After this, the server can be run simply with
 ```
 go run main.go
 ```
-All dependencies are mentioned in the ```go.mod``` file.
+All dependencies are mentioned in the ```go.mod``` file. To test the server, run 
+```
+bash test.sh
+```
+from the project root directory, which will display the appropriate message.
 
 ## Environment Variables
 The development environment variables are stored in ```config/dev.env```. The default file is as follows:
