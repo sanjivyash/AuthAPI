@@ -17,7 +17,7 @@ All dependencies are mentioned in the ```go.mod``` file. To test the server, run
 ```
 bash test.sh
 ```
-from the project root directory, which will display the appropriate message. Please note that the tests require ```Python``` installed in your system. Windows users may have permission problems, which has been addressed [here](https://stackoverflow.com/questions/56974927/permission-denied-trying-to-run-python-on-windows-10) 
+from the project root directory, which will display the appropriate message. Please note that the tests require ```Python``` installed in your system. Windows users may have permission problems, which has been addressed [here](https://stackoverflow.com/questions/56974927/permission-denied-trying-to-run-python-on-windows-10) (a bigger problem might be running bash at all :upside_down_face:)
 
 ## Environment Variables
 The development environment variables are stored in ```config/dev.env```. The default file is as follows:
