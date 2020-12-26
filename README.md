@@ -1,5 +1,9 @@
 # Authenticated API for Blockchain Applications
 
+Download and install the project with
+```
+go get github.com/sanjivyash/AuthAPI
+```
 You need to set up a storage pipeline before running the application. The dummy storage that the application uses is set up as follows after navigating to the main project directory:
 ```
 mkdir storage
