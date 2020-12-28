@@ -25,7 +25,7 @@ func Config(key string) string {
 		if gopath, ok := os.LookupEnv("GOPATH"); ok {
 			val = gopath + val 
 		} else {
-			fmt.Println("GOPATH not set as environment variable")
+			log.Fatal("GOPATH not set as environment variable")
 		}
 	}
 
