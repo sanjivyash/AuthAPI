@@ -21,5 +21,13 @@ func Config(key string) string {
 		fmt.Println("[ERROR] Invalid key: " + key)
 	}
 
+	if key == "BASE_DIR" {
+		if gopath, ok := os.LookupEnv("GOPATH"); ok {
+			val = gopath + val 
+		} else {
+			fmt.Println("GOPATH not set as environment variable")
+		}
+	}
+
 	return val
 }

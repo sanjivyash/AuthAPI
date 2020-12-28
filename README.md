@@ -24,11 +24,11 @@ The development environment variables are stored in ```config/dev.env```. The de
 ```
 PORT=:3000
 ENDPOINT=api
-BASE_DIR=$GOPATH/src/github.com/sanjivyash/AuthAPI
+BASE_DIR=/src/github.com/sanjivyash/AuthAPI
 TOKEN_LENGTH=16
 TIME_LIMIT=3600
 ```
-Please enter your ```GOPATH``` environment variable in place of the ```$GOPATH``` variable. The file present here has my ```GOPATH``` variable (```/home/sanjivyash/go```) set as default. If your Golang settings are different from the standard one, just set the ```BASE_DIR``` variable to the absolute path of project directory.
+Please ensure that your ```GOPATH``` environment variable is set as it is used in ```conig/config.go```. If your Golang settings are different from the standard one, just set the ```BASE_DIR``` variable to the absolute path of project directory, and remove the ```if``` block inside ```conig/config.go``` involving the condition ```key == "BASE_DIR"```.
 
 ## Authentication mechanism
 - A new user is allowed to sign up with a unique username and password, stored in the ```storage/users.json``` file. 
