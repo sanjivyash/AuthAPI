@@ -7,7 +7,7 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 
 	"github.com/sanjivyash/AuthAPI/config"
-	"github.com/sanjivyash/AuthAPI/router"
+	"github.com/sanjivyash/AuthAPI/router/api"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func main() {
 	endpoint := config.Config("ENDPOINT")
 
 	// setup the route handler
-	router.Router(app, endpoint)
+	api.Router(app, endpoint)
 
 	// listen to endpoints
 	log.Fatal(app.Listen(port))
