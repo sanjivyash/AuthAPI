@@ -23,6 +23,11 @@ func createUser(c *fiber.Ctx) error {
 		return c.Status(500).JSON(map[string]string{"error": "Please input valid fields username and password"})
 	}
 
+	// salt the password
+	if err := user.Salt(); err != nil {
+		return c.Status(400).JSON(map[string]string{"error": err.Error()})
+	}
+
 	// user signup
 	if err := user.Save(); err != nil {
 		return c.Status(400).JSON(map[string]string{"error": err.Error()})
@@ -43,6 +48,11 @@ func loginUser(c *fiber.Ctx) error {
 	if err := c.BodyParser(&user); err != nil {
 		fmt.Println(user)
 		return c.Status(500).JSON(map[string]string{"error": "Please input valid fields username and password"})
+	}
+	
+	// salt the password
+	if err := user.Salt(); err != nil {
+		return c.Status(400).JSON(map[string]string{"error": err.Error()})
 	}
 
 	// login authentication
@@ -70,6 +80,11 @@ func deleteUser(c *fiber.Ctx) error {
 	if err := c.BodyParser(&user); err != nil {
 		fmt.Println(user)
 		return c.Status(500).JSON(map[string]string{"error": "Please input valid fields username and password"})
+	}
+
+	// salt the password
+	if err := user.Salt(); err != nil {
+		return c.Status(400).JSON(map[string]string{"error": err.Error()})
 	}
 
 	// login authentication
